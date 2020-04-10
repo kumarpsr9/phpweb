@@ -1,0 +1,16 @@
+version: "3"
+services:
+  webserver:
+    build:
+      context: ./web
+    image: kumarpsr/ts
+    container_name: 'ts-webserver'
+    restart: 'always'
+    ports:
+      - 8000:80
+      - 443:443
+    volumes:
+      - ./web:/var/www/html
+    network_mode: bridge
+volumes:
+    persistent:
